@@ -1,4 +1,11 @@
 # Starter pipeline
+- task: twistcli-rasp@1
+  inputs:
+    twistlockService: 'Image scan console'
+    appID: 'my-app-zwan'
+    consoleHost: 'https://us-east1.cloud.twistlock.com/us-2-158254893'
+    dataFolder: '/twistlock'
+    dockerfile: '**/Dockerfile'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
