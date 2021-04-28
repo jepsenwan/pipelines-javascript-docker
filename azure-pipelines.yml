@@ -11,10 +11,10 @@ pool:
 steps:
 - task: Docker@2
   displayName: Build an image
-  nputs:
-  repository: $(imageName)
-  command: build
-  Dockerfile: app/Dockerfile
+  inputs:
+    repository: $(imageName)
+    command: build
+    Dockerfile: app/Dockerfile
 - task: twistcli-rasp@1
   inputs:
      twistlockService: 'Image scan console'
