@@ -13,6 +13,13 @@ steps:
   displayName: Build an image
   inputs:
     repository: $(imageName)
+- task: twistcli-rasp@1
+  inputs:
+    twistlockService: 'Image scan console'
+    appID: 'my-app-zwan'
+    consoleHost: 'https://us-east1.cloud.twistlock.com/us-2-158254893'
+    dataFolder: '/twistlock'
+    dockerfile: '**/Dockerfile'
     command: build
     Dockerfile: app/Dockerfile
 - task: twistcli-rasp@1
