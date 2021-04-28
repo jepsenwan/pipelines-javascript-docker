@@ -16,10 +16,9 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
-- task: twistcli-rasp@1
+
+- task: prisma-cloud-compute-scan@3
   inputs:
+    scanType: 'images'
     twistlockService: 'Image scan console'
-    appID: 'my-app-zwan'
-    consoleHost: 'https://us-east1.cloud.twistlock.com/us-2-158254893'
-    dataFolder: '/twistlock'
-    dockerfile: '**/Dockerfile'
+    artifact: 'pipelines-javascript-docker'
