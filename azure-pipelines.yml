@@ -21,4 +21,4 @@ steps:
   inputs:
     scanType: 'images'
     twistlockService: 'Image scan console'
-    artifact: 'pipelines-javascript-docker'
+    artifact: 'pipelines-javascript-docker*'
