@@ -5,8 +5,9 @@ trigger:
 
 pool:
    vmImage: 'ubuntu-1604' # set to windows-latest or another Windows vmImage for Windows builds
-   variables:
-    mageName: 'pipelines-javascript-docker'
+
+variables:
+   mageName: 'pipelines-javascript-docker'
 
 steps:
 - task: Docker@2
