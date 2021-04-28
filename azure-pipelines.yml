@@ -1,28 +1,27 @@
 # Starter pipeline
 
 trigger:
-        - main
+- main
 
-        pool:
-          vmImage: 'ubuntu-1604' # set to windows-latest or another Windows vmImage for Windows builds
+pool:
+   vmImage: 'ubuntu-1604' # set to windows-latest or another Windows vmImage for Windows builds
+   variables:
+    mageName: 'pipelines-javascript-docker'
 
-        variables:
-          imageName: 'pipelines-javascript-docker'
-
-        steps:
-        - task: Docker@2
-          displayName: Build an image
-          inputs:
-            repository: $(imageName)
-            command: build
-            Dockerfile: app/Dockerfile
-        - task: twistcli-rasp@1
-          inputs:
-          twistlockService: 'Image scan console'
-          appID: 'my-app-zwan'
-          consoleHost: 'https://us-east1.cloud.twistlock.com/us-2-158254893'
-          dataFolder: '/twistlock'
-          dockerfile: '**/Dockerfile'
-          # Start with a minimal pipeline that you can customize to build and deploy your code.
-          # Add steps that build, run tests, deploy, and more:
-          # https://aka.ms/yaml
+steps:
+- task: Docker@2
+  displayName: Build an image
+  nputs:
+  repository: $(imageName)
+  command: build
+  Dockerfile: app/Dockerfile
+- task: twistcli-rasp@1
+  inputs:
+     twistlockService: 'Image scan console'
+     appID: 'my-app-zwan'
+     consoleHost: 'https://us-east1.cloud.twistlock.com/us-2-158254893'
+     dataFolder: '/twistlock'
+     dockerfile: '**/Dockerfile'
+     # Start with a minimal pipeline that you can customize to build and deploy your code.
+     # Add steps that build, run tests, deploy, and more:
+     # https://aka.ms/yaml
