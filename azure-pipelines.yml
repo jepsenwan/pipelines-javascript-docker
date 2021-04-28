@@ -13,4 +13,3 @@ steps:
     scanType: 'images'
     twistlockService: 'Image scan console'
     artifact: 'nginx:latest'
-    project: 'Azure Devops Compute Scan'
